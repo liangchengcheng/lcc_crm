@@ -1,6 +1,5 @@
 package com.lcc.crm.domain;
 
-public class SysCodeRule 
 public class SysCodeRule implements java.io.Serializable {
 
 	private Integer id;
