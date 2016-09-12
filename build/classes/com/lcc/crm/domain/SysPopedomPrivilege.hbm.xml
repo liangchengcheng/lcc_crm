@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-12 20:00:53 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lcc.crm.domain.SysPopedomPrivilege" table="SYSPOPEDOMPRIVILEGE">
+       <cache usage="read-write"/>
+        <composite-id name="id" class="com.lcc.crm.domain.SysPopedomPrivilegeId">
+        	<key-property name="roleId" type="java.lang.String"></key-property>
+        	<key-property name="popedomModule" type="java.lang.String">
+        		<column name="popedomModule" sql-type="varchar(30)"></column>
+        	</key-property>
+        	<key-property name="popedomPrivilege" type="java.lang.String"></key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-12 20:00:53 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lcc.crm.domain.Company" table="COMPANY">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="code" type="java.lang.String">
+            <column name="code" length="50" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="100" not-null="true" />
+        </property>
+        <property name="pycode" type="java.lang.String">
+            <column name="pycode" length="100" />
+        </property>
+        <property name="grade" type="java.lang.String">
+            <column name="grade" length="100"/>
+        </property>
+        <property name="regionName" type="java.lang.String">
+            <column name="regionName" length="100" />
+        </property>
+        <property name="source" type="java.lang.String">
+            <column name="source" length="100" />
+        </property>
+        <property name="trade" type="java.lang.String">
+            <column name="trade" length="100" />
+        </property>
+        <property name="scale" type="java.lang.String">
+            <column name="scale" length="100" />
+        </property>
+        <property name="province" type="java.lang.String">
+            <column name="province" length="50" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="city" length="50"/>
+        </property>
+        <property name="postcode" type="java.lang.String">
+            <column name="postcode" length="50" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address" length="200" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="100" />
+        </property>
+        <property name="web" type="java.lang.String">
+            <column name="web" length="200"/>
+        </property>
+        <property name="tel1" type="java.lang.String">
+            <column name="tel1" length="20" />
+        </property>
+        <property name="fax" type="java.lang.String">
+            <column name="fax" length="50" />
+        </property>
+        <property name="mobile" type="java.lang.String">
+            <column name="mobile" length="50" />
+        </property>
+        <property name="tel2" type="java.lang.String">
+            <column name="tel2" length="50"/>
+        </property>
+        <property name="nextTouchDate" type="java.util.Date">
+            <column name="nextTouchDate" length="10" />
+        </property>
+        <property name="quality" type="java.lang.String">
+            <column name="quality" length="100"/>
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" length="65535" />
+        </property>
+        <property name="dealin" type="java.lang.String">
+            <column name="dealin" length="100" />
+        </property>
+        <property name="kind" type="java.lang.String">
+            <column name="kind" length="100" />
+        </property>
+        <property name="artificialPerson" type="java.lang.String">
+            <column name="artificialPerson" length="50" />
+        </property>
+        <property name="registeMoney" type="java.lang.String">
+            <column name="registeMoney" length="50" />
+        </property>
+        <property name="bank" type="java.lang.String">
+            <column name="bank" length="100"/>
+        </property>
+        <property name="account" type="java.lang.String">
+            <column name="account" length="100"/>
+        </property>
+        <property name="taxCode" type="java.lang.String">
+            <column name="taxCode" length="100" />
+        </property>
+        <property name="creater" type="java.lang.String">
+            <column name="creater"  length="50"/>
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="19" />
+        </property>
+        <property name="updater" type="java.lang.String">
+            <column name="updater" length="50" />
+        </property>
+        <property name="updateTime" type="java.lang.String">
+            <column name="updateTime" length="19" />
+        </property>
+        
+        
+        <!-- 配置客户到用户的多对一关联 -->
+        
+        <many-to-one name="sysUser" class="com.lcc.crm.domain.SysUser" lazy="false">
+            <column name="owerUser" />
+        </many-to-one>
+        <property name="dispensePerson" type="java.lang.String">
+            <column name="dispensePerson" length="50" />
+        </property>
+        <property name="dispenseDate" type="java.lang.String">
+            <column name="dispenseDate" length="19"/>
+        </property>
+        <property name="shareFlag" type="java.lang.Character">
+            <column name="shareFlag" length="1" />
+        </property>
+        <property name="shareIds" type="java.lang.String">
+            <column name="shareIds" length="500"/>
+        </property>
+    </class>
+</hibernate-mapping>

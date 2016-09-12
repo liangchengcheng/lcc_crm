@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-12 20:00:53 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lcc.crm.domain.SysMenu" table="SYSMENU">
+        	<cache usage="read-write"/>
+        <composite-id name="id" class="com.lcc.crm.domain.SysMenuId">
+        	<key-property name="menuModule" type="java.lang.String"></key-property>
+        	<key-property name="menuPrivilege" type="java.lang.String"></key-property>
+        </composite-id>
+        <property name="menuName" type="java.lang.String"></property>
+        <property name="sort" type="java.lang.Integer"></property>
+        <property name="remark" type="java.lang.String"></property>
+        <property name="title" type="java.lang.String"></property>
+        <property name="target" type="java.lang.String"></property>
+        <property name="url" type="java.lang.String"></property>
+        <property name="icon" type="java.lang.String"></property>
+    </class>
+</hibernate-mapping>
