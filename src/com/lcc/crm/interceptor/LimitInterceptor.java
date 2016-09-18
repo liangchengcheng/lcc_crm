@@ -1,6 +1,7 @@
 package com.lcc.crm.interceptor;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,7 +9,10 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.orm.jpa.EntityManagerHolder;
 
 import com.lcc.crm.anotation.Limit;
+import com.lcc.crm.container.ServiceProvinder;
+import com.lcc.crm.domain.SysPopedomPrivilege;
 import com.lcc.crm.domain.SysUser;
+import com.lcc.crm.service.ISysPopedomPrivilegeService;
 import com.lcc.crm.util.SessionUtils;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;
@@ -26,8 +30,13 @@ public class LimitInterceptor extends MethodFilterInterceptor {
 		//获取request对象
 		HttpServletRequest request =ServletActionContext.getRequest();
 		//检测注解
-		boolean flag= 
-		return null;
+		boolean flag= isCheckLimit(request, method);
+		if (!flag) {
+			//没有权限
+			return "popmsg_popedom";
+		}
+		String returnValue = invocation.invoke();
+		return returnValue;
 	}
 	
 	private boolean isCheckLimit(HttpServletRequest request,Method method){
@@ -56,12 +65,22 @@ public class LimitInterceptor extends MethodFilterInterceptor {
 		//获取操作的名称
 		String privilege = limit.privilege();
 		//检车ysys_popedom_privilege上所有的数据
-		
-		
-		
-		
-		
-		return false;
+		ISysPopedomPrivilegeService sysPopedomPrivilegeService=(ISysPopedomPrivilegeService)
+				ServiceProvinder.getService("sysPopedomPrivilegeService");
+		List<SysPopedomPrivilege> list=sysPopedomPrivilegeService.findAllSysPopedomPrivilegesCache();
+		if(list!=null&&list.size()>0){
+			for(int i=0;i<list.size();i++){
+				SysPopedomPrivilege s=list.get(i);
+				if(s!=null){
+					if(roleId.equals(s.getId().getRoleId())&&module.equals(s.getId().getPopedomModule())&&
+							privilege.equals(s.getId().getPopedomPrivilege())){
+						flag=true;
+						break;
+					}
+				}
+			}
+		}
+		return flag;
 	}
 
 }
