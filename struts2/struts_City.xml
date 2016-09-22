@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="city" namespace="/" extends="struts-default">
+		<action name="cityAction_*" method="{1}" class="cityAction">
+			<result name="listaction">/WEB-INF/page/sys/city/list.jsp</result>
+			<result name="addUI">/WEB-INF/page/sys/city/add.jsp</result>
+			<result name="updateUI">/WEB-INF/page/sys/city/edit.jsp</result>
+		</action>
+	</package>
+
+</struts>	

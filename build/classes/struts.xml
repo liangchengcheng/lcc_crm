@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<include file="struts2/struts_Interceptor.xml"></include>
+	<!-- 创建action的过程由spring来管理 -->
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<!-- 配置请求后缀名.do -->
+	<constant name="struts.action.extension" value="do"></constant>
+	<!-- 配置主题为简单主题 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- 配置struts2的模式为开发模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<include file="struts2/struts_SysUserGroup.xml"></include>
+	<include file="struts2/struts_Menu.xml"></include>
+	<include file="struts2/struts_SysRole.xml"></include>
+	<include file="struts2/struts_SysUser.xml"></include>
+	<include file="struts2/struts_Company.xml"></include>
+	<include file="struts2/struts_Report.xml"></include>
+	<include file="struts2/struts_Province.xml"></include>
+	<include file="struts2/struts_City.xml"></include>
+</struts>	

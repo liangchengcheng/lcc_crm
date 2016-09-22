@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="default" namespace="/" abstract="true" extends="struts-default">
+		<interceptors>
+			<interceptor name="LimitInterceptor" class="com.lcc.interceptor.LimitInterceptor"></interceptor>
+			<interceptor-stack name="LimitStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="LimitInteceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- struts2执行的拦截器栈 -->
+		<default-interceptor-ref name="LimitStack"></default-interceptor-ref>
+		<global-results>
+			<!-- 转发到没有权限的页面 -->
+			<result name="popmsg_popedom">/WEB-INF/page/popmsg_popedom.jsp</result>
+		</global-results>
+	</package>
+</struts>
